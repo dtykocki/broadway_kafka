@@ -21,9 +21,9 @@ defmodule BroadwayKafka.Producer do
     * `:receive_interval` - Optional. The duration (in milliseconds) for which the producer
       waits before making a request for more messages. Default is 2000 (2 seconds).
 
-    * `:offset_commit_on_ack` - Optional. Tells Broadway to send or not an offset commit
-      request after each acknowledgemnt. Default is `true`. Setting this value to `false` can
-      increase performance since commit requests will respect the `:offset_commit_interval_seconds`
+    * `:offset_commit_on_ack` - Optional. Tells Broadway to commit or not the current offset
+      after each acknowledgemnt. Default is `true`. Setting this value to `false` can increase
+      performance since commit requests will respect the `:offset_commit_interval_seconds`
       option. However, setting long commit intervals might lead to a large number of duplicated
       records to be processed after a server restart or connection loss. If that's the case, make
       sure your logic is idempotent when consuming records to avoid inconsistencies. Also, bear
